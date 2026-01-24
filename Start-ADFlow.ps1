@@ -131,9 +131,7 @@ function Show-Banner {
     Write-Host "  │  Domaine: " -ForegroundColor Cyan -NoNewline
     Write-Host $domainText.PadRight(50) -ForegroundColor Green -NoNewline
     Write-Host "│" -ForegroundColor Cyan
-    Write-Host "  │                                      " -ForegroundColor Cyan -NoNewline
-    Write-Host "Auteur: Taeckens.M" -ForegroundColor DarkGray -NoNewline
-    Write-Host "     │" -ForegroundColor Cyan
+    Write-Host "  │                                                             │" -ForegroundColor Cyan
     Write-Host "  ╰─────────────────────────────────────────────────────────────╯" -ForegroundColor Cyan
     Write-Host ""
 }
