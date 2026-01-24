@@ -19,7 +19,7 @@
     .\Start-ADFlow.ps1 -ExportTemplate
     Exporte les templates CSV
 .NOTES
-    Auteur: Taeckens.M
+    Auteur: Matthieu Taeckens
     Version: 2.0.0
 #>
 
@@ -2920,7 +2920,7 @@ function Show-HelpScreen {
     Show-MenuHeader -Title "Aide"
 
     Write-Host "    ADFlow CLI - Deploiement Active Directory" -ForegroundColor Cyan
-    Write-Host "    Auteur: Taeckens.M" -ForegroundColor Gray
+    Write-Host "    Auteur: Matthieu Taeckens" -ForegroundColor Gray
     Write-Host ""
     Write-Host "    UTILISATION:" -ForegroundColor Yellow
     Write-Host "      Lancez le script sans argument pour acceder a l'interface interactive." -ForegroundColor Gray
