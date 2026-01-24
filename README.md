@@ -72,4 +72,4 @@ MIT License
 
 ## Auteur
 
-Taeckens.M
+Matthieu Taeckens
