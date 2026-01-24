@@ -58,7 +58,7 @@ L'interface vous guide a travers toutes les etapes : validation, configuration, 
 .\Start-ADFlow.ps1 -ExportTemplate
 
 # Afficher la version
-.\Start-ADFlow.ps1 - Version
+.\Start-ADFlow.ps1 -Version
 
 # Afficher l'aide
 .\Start-ADFlow.ps1 -Help
