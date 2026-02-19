@@ -1828,15 +1828,53 @@ function Export-Templates {
     }
 
     $templates = @(
-        @{ Name = "Users"; Columns = @('SamAccountName', 'GivenName', 'Surname', 'DisplayName', 'Email', 'Password', 'OU', 'Groups', 'Enabled', 'Description') },
-        @{ Name = "Groups"; Columns = @('Name', 'SamAccountName', 'GroupScope', 'GroupCategory', 'OU', 'Description', 'Members') },
-        @{ Name = "Computers"; Columns = @('Name', 'SamAccountName', 'OU', 'Description', 'Enabled') }
+        @{ 
+            Name    = "Users"
+            Columns = @('SamAccountName', 'GivenName', 'Surname', 'DisplayName', 'Email', 'Password', 'OU', 'Groups', 'Enabled', 'Description')
+            Example = [PSCustomObject]@{
+                SamAccountName = 'jdupont'
+                GivenName      = 'Jean'
+                Surname        = 'Dupont'
+                DisplayName    = ''
+                Email          = ''
+                Password       = ''
+                OU             = 'OU=Users,OU=TEST'
+                Groups         = 'GG_TEST;GG_USRTEST'
+                Enabled        = 'True'
+                Description    = 'Compte exemple a supprimer'
+            }
+        },
+        @{ 
+            Name    = "Groups"
+            Columns = @('Name', 'SamAccountName', 'GroupScope', 'GroupCategory', 'OU', 'Description', 'Members')
+            Example = [PSCustomObject]@{
+                Name           = 'GG_TEST'
+                SamAccountName = 'GG_TEST'
+                GroupScope     = 'Global'
+                GroupCategory  = 'Security'
+                OU             = 'OU=Groups,OU=TEST'
+                Description    = 'Groupe exemple a supprimer'
+                Members        = 'jdupont;jmartin'
+            }
+        },
+        @{ 
+            Name    = "Computers"
+            Columns = @('Name', 'SamAccountName', 'OU', 'Description', 'Enabled')
+            Example = [PSCustomObject]@{
+                Name           = 'PC-EXEMPLE'
+                SamAccountName = 'PC-EXEMPLE$'
+                OU             = 'OU=Computers,OU=TEST'
+                Description    = 'Poste exemple a supprimer'
+                Enabled        = 'True'
+            }
+        }
     )
 
     foreach ($template in $templates) {
         $filePath = Join-Path -Path $script:CSVDefaultPath -ChildPath "$($template.Name).csv"
         try {
             $template.Columns -join "," | Out-File -FilePath $filePath -Encoding UTF8
+            $template.Example | Select-Object $template.Columns | ConvertTo-Csv -NoTypeInformation | Select-Object -Skip 1 | Out-File -FilePath $filePath -Encoding UTF8 -Append
             Show-StatusMessage -Message "$($template.Name).csv exporte" -Level "OK"
         }
         catch {
