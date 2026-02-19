@@ -1211,7 +1211,7 @@ function New-ADUserFromCSV {
         $userParams = @{
             SamAccountName        = $UserData.SamAccountName
             UserPrincipalName     = "$($UserData.SamAccountName)@$((Get-ADDomain).DNSRoot)"
-            Name                  = $displayName
+            Name                  = $UserData.SamAccountName
             GivenName             = $UserData.GivenName
             Surname               = $UserData.Surname
             DisplayName           = $displayName
