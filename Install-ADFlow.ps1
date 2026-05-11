@@ -6,7 +6,7 @@
     Ce script télécharge ADFlow depuis GitHub
     et le place dans un dossier sur le bureau de l'utilisateur.
 .NOTES
-    Usage: irm https://raw.githubusercontent.com/USER/REPO/main/Install-ADFlow.ps1 | iex
+    Usage: irm https://raw.githubusercontent.com/Aractuse/ADFlow/refs/heads/main/Install-ADFlow.ps1 | iex
 #>
 
 # ============================================

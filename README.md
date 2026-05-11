@@ -22,6 +22,14 @@
 - Machine jointe au domaine
 - Droits AD appropries
 
+## Installation rapide
+
+Téléchargez le release depuis GitHub ou utilisez la commande IRM pour installer l'outil sur n'importe quelle machine :
+
+```powershell
+irm https://raw.githubusercontent.com/Aractuse/ADFlow/refs/heads/main/Install-ADFlow.ps1 | iex
+```
+
 ## Demarrage rapide
 
 ```powershell
