@@ -21,9 +21,8 @@ $ADFlow_7za_Name = "7za.exe"
 # ============================================
 # CONFIGURATION - Dossiers de destination
 # ============================================
-$FolderName = "AD-Tools"
-$DestinationPath = Join-Path -Path ([Environment]::GetFolderPath("Desktop")) -ChildPath $FolderName
-$ADFlowPath = Join-Path -Path $DestinationPath -ChildPath "ADFlow"
+$FolderName = "ADFlow"
+$ADFlowPath = Join-Path -Path ([Environment]::GetFolderPath("Desktop")) -ChildPath $FolderName
 $ADFlowToolsPath = Join-Path -Path $ADFlowPath -ChildPath "Tools"
 
 # ============================================
@@ -36,7 +35,7 @@ Write-Host "============================================" -ForegroundColor Cyan
 Write-Host ""
 
 # Création des dossiers de destination
-$FoldersToCreate = @($DestinationPath, $ADFlowPath, $ADFlowToolsPath)
+$FoldersToCreate = @($ADFlowPath, $ADFlowToolsPath)
 
 foreach ($Folder in $FoldersToCreate) {
     if (-not (Test-Path -Path $Folder)) {
@@ -96,8 +95,8 @@ if ($SuccessCount -eq $TotalCount) {
 }
 
 Write-Host ""
-Write-Host "Emplacement: $DestinationPath" -ForegroundColor Cyan
+Write-Host "Emplacement: $ADFlowPath" -ForegroundColor Cyan
 Write-Host ""
 
 # Ouvrir le dossier dans l'explorateur
-explorer.exe $DestinationPath
+explorer.exe $ADFlowPath
